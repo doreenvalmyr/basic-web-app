@@ -12,7 +12,7 @@ export default function QueryProcessor(query: string): string {
   }
 
   else if (query.toLowerCase().includes("largest")) {
-    let nums = query.replace("Which of the following numbers is the largest: ", "").split("," 3);
+    let nums = query.replace("Which of the following numbers is the largest: ", "").split(",", 3);
     let largest = 0;
     for (let i = 0; i < 3; i++) {
       if (parseInt(nums[i], 10) > largest) {
@@ -24,10 +24,22 @@ export default function QueryProcessor(query: string): string {
 
   else if (query.toLowerCase().includes("plus")) {
     let newString = query.replace("What is ", "");
-    newString.replace(" plus", "");
+    let newString2 = newString.replace("plus", "");
+    let newString3 = newString2.replace("?", "").concat(" ahh");
+    let nums2 = newString3.split(" ", 3);
+    let newString4 = newString3.replace(nums2[0], "");
+    let newString5 = newString4.replace(" ahh", "");
+    let plus = parseInt(nums2[0]) + parseInt(newString5);
+    return plus.toString()
+  }  
+
+  else if (query.toLowerCase().includes("multiplied")) {
+    let newString = query.replace("What is ", "");
+    newString.replace("plus", "");
     let nums2 = newString.split(" ", 2);
     let plus = nums2[0] + nums2[1];
     return plus.toString();
   }  
+
   return "";
 }
