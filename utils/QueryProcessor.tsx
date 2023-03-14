@@ -18,9 +18,12 @@ export default function QueryProcessor(query: string): string {
       if (parseInt(nums[i], 10) > largest) {
         largest = parseInt(nums[i]);
       }
-      return "DV";
+      return largest.toString();
     }
   }
-  
+
+  else if (query.toLowerCase().includes("plus")) {
+    return "";
+  }  
   return "";
 }
