@@ -10,6 +10,17 @@ export default function QueryProcessor(query: string): string {
   else if (query.toLowerCase().includes("name")) {
     return "DV";
   }
+
+  else if (query.toLowerCase().includes("largest")) {
+    let nums = query.replace("Which of the following numbers is the largest: ", "").split("," 3);
+    let largest = 0;
+    for (let i = 0; i < 3; i++) {
+      if (parseInt(nums[i], 10) > largest) {
+        largest = parseInt(nums[i]);
+      }
+      return "DV";
+    }
+  }
   
   return "";
 }
