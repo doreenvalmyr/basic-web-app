@@ -23,7 +23,11 @@ export default function QueryProcessor(query: string): string {
   }
 
   else if (query.toLowerCase().includes("plus")) {
-    return "";
+    let newString = query.replace("What is ", "");
+    newString.replace(" plus", "");
+    let nums2 = newString.split(" ", 2);
+    let plus = nums2[0] + nums2[1];
+    return plus.toString();
   }  
   return "";
 }
