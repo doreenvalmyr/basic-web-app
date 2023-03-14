@@ -55,5 +55,16 @@ export default function QueryProcessor(query: string): string {
     return minus.toString()
   }  
 
+  else if (query.toLowerCase().includes("power")) {
+    let newString = query.replace("What is ", "");
+    let newString2 = newString.replace("to the power of", "");
+    let newString3 = newString2.replace("?", "").concat(" ahh");
+    let nums2 = newString3.split(" ", 3);
+    let newString4 = newString3.replace(nums2[0], "");
+    let newString5 = newString4.replace(" ahh", "");
+    let power = Math.pow(parseInt(nums2[0]), parseInt(newString5));
+    return power.toString()
+  } 
+
   return "";
 }
